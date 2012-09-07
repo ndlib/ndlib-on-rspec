@@ -1,6 +1,6 @@
 # Ndlib::On::Rspec
 
-TODO: Write a gem description
+Some Rspec matchers to share across projects.
 
 ## Installation
 
@@ -18,7 +18,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Take a look at the /spec directory.
 
 ## Contributing
 

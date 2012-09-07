@@ -14,4 +14,6 @@ Gem::Specification.new do |gem|
   gem.name          = "ndlib-on-rspec"
   gem.require_paths = ["lib"]
   gem.version       = NdlibOnRspec::VERSION
+
+  gem.add_runtime_dependency(%q<rspec-rails>, [">= 2.6.1"])
 end

@@ -18,7 +18,15 @@ Or install it yourself as:
 
 ## Usage
 
-Take a look at the /spec directory.
+Take a look at the /spec directory for greater clarity
+
+### :alias_from
+
+    object.should alias_from(:one_method).to(:another)
+
+### :delegate
+
+    object.should delegate(:blog_name).to(:blog).via(:name)
 
 ## Contributing
 

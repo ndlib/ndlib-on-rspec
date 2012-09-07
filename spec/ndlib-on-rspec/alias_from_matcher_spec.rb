@@ -1,20 +1,6 @@
 require "spec_helper"
 
 describe RSpec::Matchers, "alias_from" do
-  class Comment
-    def parent
-      @parent ||= Comment.new
-    end
-    alias_method :ancestor, :parent
-
-    def level_up
-      parent
-    end
-
-    def inspected_parent
-      parent.inspect
-    end
-  end
   subject { Comment.new }
 
   describe '#alias_from' do
@@ -32,7 +18,7 @@ describe RSpec::Matchers, "alias_from" do
       }.should(
         raise_error(
           RSpec::Expectations::ExpectationNotMetError,
-          /alias :parent to :inspected_parent/
+          /alias #parent to #inspected_parent/
         )
       )
     end

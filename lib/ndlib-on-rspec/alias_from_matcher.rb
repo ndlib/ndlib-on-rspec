@@ -4,7 +4,7 @@ RSpec::Matchers.define :alias_from do |method_name|
     @method_name = method_name
     @object = object
     if !@object.respond_to?(@method_name)
-      raise "#{@object} does not respond to :#{@method_name}!"
+      raise "#{@object} does not respond to ##{@method_name}!"
     end
 
     # If :alias_method was used
@@ -21,15 +21,15 @@ RSpec::Matchers.define :alias_from do |method_name|
   end
 
   description do
-    "alias :#{@method_name} to :#{@to}"
+    "alias ##{@method_name} to ##{@to}"
   end
 
   failure_message_for_should do |text|
-    "expected #{@object} to alias :#{@method_name} to :#{@to}"
+    "expected #{@object} to alias ##{@method_name} to ##{@to}"
   end
 
   failure_message_for_should_not do |text|
-    "expected #{@object} NOT to alias :#{@method_name} to :#{@to}"
+    "expected #{@object} NOT to alias ##{@method_name} to ##{@to}"
   end
 
   chain(:to) { |receiver| @to = receiver }

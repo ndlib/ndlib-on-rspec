@@ -17,3 +17,38 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = 'random'
 end
+
+class Blog
+  def blog_name
+    'Hello World'
+  end
+
+  def size
+    'Wonderful'
+  end
+end
+class Comment
+  def parent
+    @parent ||= Comment.new
+  end
+  alias_method :ancestor, :parent
+
+  def level_up
+    parent
+  end
+
+  def inspected_parent
+    parent.inspect
+  end
+
+  def blog
+    @blog ||= Blog.new
+  end
+  def blog_name
+    blog.blog_name
+  end
+
+  def blog_size
+    blog.size
+  end
+end

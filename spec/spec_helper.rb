@@ -28,6 +28,11 @@ class Blog
   end
 end
 class Comment
+
+  def self.a_class_method_name
+    'a_class_method_name'
+  end
+
   def parent
     @parent ||= Comment.new
   end

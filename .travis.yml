@@ -1,0 +1,14 @@
+language: ruby
+script: "bundle exec rspec spec/"
+rvm:
+  - 1.9.3
+  - 1.8.7
+gemfile:
+  - Gemfile
+notifications:
+  email:
+    recipients:
+      - jfriesen@nd.edu
+branches:
+  only:
+    - master

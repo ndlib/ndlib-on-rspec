@@ -1,5 +1,7 @@
 # Ndlib::On::Rspec
 
+[![Build Status](https://secure.travis-ci.org/ndlib/ndlib-on-rspec.png)](http://travis-ci.org/ndlib/ndlib-on-rspec)
+
 Some Rspec matchers to share across projects.
 
 ## Installation

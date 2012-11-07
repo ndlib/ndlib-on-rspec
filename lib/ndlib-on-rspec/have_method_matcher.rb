@@ -2,7 +2,9 @@ RSpec::Matchers.define :have_method do |method_name|
   match do |object|
     @method_name = method_name
     @arity ||= '0'.to_i
-    if %r{^(?<prefix>\.|\#)(?<normalized_method_name>.*)} =~ method_name.to_s
+    if %r{^(\.|\#)(.*)} =~ method_name.to_s
+      prefix = $1
+      normalized_method_name = $2
       @normalized_method_name = normalized_method_name
       @klass = object.is_a?(Class) ? object : object.class
       if prefix == '.'

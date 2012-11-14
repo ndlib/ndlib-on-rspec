@@ -9,9 +9,14 @@ RSpec::Matchers.define :delegate do |method|
     if !@object.respond_to?(@to)
       raise "#{@object} does not respond to ##{@to}!"
     end
-
-    @object.stub(@to).and_return double('receiver')
-    @object.send(@to).stub(@via).and_return :called
+    if defined?(RR)
+      receiver = Object.new
+      mock(@object, @to).returns(receiver)
+      mock(receiver, @via).returns(:called)
+    else
+      @object.stub(@to).and_return double('receiver')
+      @object.send(@to).stub(@via).and_return :called
+    end
     @object.send(@method) == :called
   end
 
